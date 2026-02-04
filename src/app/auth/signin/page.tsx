@@ -8,7 +8,7 @@ const LoginPage = () => {
     const [showPassword, setShowPassword] = useState(false);
 
     return (
-        <div className="min-h-screen bg-[#F9FAFB] flex flex-col items-center justify-center p-4 pt-8.5">
+        <div className="min-h-screen bg-[#ffffff] flex flex-col items-center justify-center p-4 pt-8.5">
             <div className="flex items-center gap-2 mb-8">
                 <div className="bg-[#066FD1] p-1.5 rounded-lg">
                     <CodeIcon fontSize="small" className="!text-white !w-5 !h-5" />

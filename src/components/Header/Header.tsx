@@ -83,8 +83,8 @@ const authSubMenu = [
   { label: "Forgot password", path: "/auth/forgot-password" },
   { label: "Terms of service", path: "/auth/terms" },
   { label: "Lock screen", path: "/auth/lock-screen" },
-  { label: "2 step verification", path: "/auth/2step" },
-  { label: "2 step verification code", path: "/auth/2step-code" }
+  { label: "2 step verification", path: "/auth/verification" },
+  { label: "2 step verification code", path: "/auth/verification-code" }
 ];
 
 const cards = [
