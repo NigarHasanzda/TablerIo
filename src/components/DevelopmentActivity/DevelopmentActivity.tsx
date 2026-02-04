@@ -56,7 +56,7 @@ const DeveloperActivitySection = () => {
 
     return (
         <div className="bg-[#f8f9fa] p-8 min-h-screen font-sans text-gray-700">
-            <div className="w-[74.6%] mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="w-[76%] mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
 
                 {/* LEFT COLUMN */}
                 <div className="flex flex-col gap-6">

@@ -1,6 +1,7 @@
 
 import DashboardCard from "@/components/Dashboard/DashboardCard";
 import DeveloperActivity from "@/components/DevelopmentActivity/DevelopmentActivity";
+import LocationTraffic from "@/components/LocationTraffic/LocationTrafic";
 import MetricsGrid from "@/components/MetricsGrid/MetricsGrid";
 import StatCard from "@/components/StatCards/StatCard";
 import Image from "next/image";
@@ -11,6 +12,7 @@ export default function Home() {
     <DashboardCard/>
     <StatCard/>
     <MetricsGrid/>
+    <LocationTraffic/>
     <DeveloperActivity/>
     
     </div>

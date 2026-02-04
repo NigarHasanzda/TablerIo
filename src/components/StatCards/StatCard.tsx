@@ -55,7 +55,7 @@ const StatsDashboard = () => {
         15, 65, 25, 90, 40, 80,
         10, 70, 30, 85, 20, 75,
         50, 95, 35, 100, 45, 85,
-        10, 70, 30, 85, 20, 75,
+        10, 70, 30, 85, 20, 5,
       ]
     }
   };
@@ -81,14 +81,14 @@ const StatsDashboard = () => {
     <div className="flex w-[90%] mx-auto  mt-[-10px] flex-wrap gap-5 h-fit font-sans justify-center">
 
       {/* SALES */}
-      <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm w-[330px] h-[190px] flex flex-col justify-between transition hover:shadow-md">
+      <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm w-[330px] h-[170px] flex flex-col justify-between transition hover:shadow-md">
         <div className="flex justify-between items-center">
           <span className="text-[12px] font-bold text-gray-400 uppercase tracking-widest">SALES</span>
           <div className="flex items-center text-[13px] text-gray-500 cursor-pointer hover:text-blue-500 transition">
             Last 7 days <ChevronDown size={14} className="ml-1" />
           </div>
         </div>
-        <h2 className="text-[32px] font-bold text-[#202124]">{sales.value}%</h2>
+        <h2 className="text-[27px] font-bold mt-[-20px] text-[#374151]">{sales.value}%</h2>
         <div>
           <div className="flex justify-between items-end mb-2 text-[15px]">
             <span className="text-[#3c4043]">Conversion rate</span>
@@ -103,7 +103,7 @@ const StatsDashboard = () => {
       </div>
 
       {/* REVENUE */}
-      <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm w-[330px] h-[190px] flex flex-col relative transition hover:shadow-md">
+      <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm w-[330px] h-[170px] flex flex-col relative transition hover:shadow-md">
         <div className="flex justify-between items-center mb-2">
           <span className="text-[12px] font-bold text-gray-400 uppercase tracking-widest">REVENUE</span>
           <div className="flex items-center text-[13px] text-gray-500 hover:text-blue-500 cursor-pointer">
@@ -111,7 +111,7 @@ const StatsDashboard = () => {
           </div>
         </div>
         <div className="flex items-center gap-2 mb-3">
-          <h2 className="text-[32px] font-bold text-[#202124]">${revenue.amount.toLocaleString()}</h2>
+          <h2 className="text-[27px] mt-[-10px] font-bold text-[#374151]">${revenue.amount.toLocaleString()}</h2>
           <div className="flex items-center text-[15px] font-bold text-green-600">{revenue.growth}% <ArrowUpRight size={16} /></div>
         </div>
         <div className="w-full h-[65px] mt-auto">
@@ -139,7 +139,7 @@ const StatsDashboard = () => {
       </div>
 
       {/* NEW CLIENTS */}
-      <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm w-[330px] h-[190px] flex flex-col justify-between transition hover:shadow-md">
+      <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm w-[330px] h-[170px] flex flex-col justify-between transition hover:shadow-md">
         <div className="flex justify-between items-center">
           <span className="text-[12px] font-bold text-gray-400 uppercase tracking-widest">NEW CLIENTS</span>
           <div className="flex items-center text-[13px] text-gray-500 hover:text-blue-500 cursor-pointer">
@@ -147,7 +147,7 @@ const StatsDashboard = () => {
           </div>
         </div>
         <div className="flex items-center gap-2 mb-2">
-          <h2 className="text-[32px] font-bold text-[#202124]">{newClients.count.toLocaleString()}</h2>
+          <h2 className="text-[27px] mt-[-6px] font-bold text-[#374151]">{newClients.count.toLocaleString()}</h2>
           <span className="text-[14px] font-bold text-green-600">{newClients.growth}%</span>
         </div>
         <div className="w-full h-[65px] mt-auto">
@@ -160,9 +160,7 @@ const StatsDashboard = () => {
           </ResponsiveContainer>
         </div>
       </div>
-
-      {/* SUBSCRIPTIONS */}
-      <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm w-[330px] h-[190px] flex flex-col transition hover:shadow-md">
+      <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm w-[330px] h-[170px] flex flex-col transition hover:shadow-md">
         <div className="flex justify-between items-center mb-2">
           <span className="text-[12px] font-bold text-gray-400 uppercase tracking-widest">ACTIVE SUBSCRIPTIONS</span>
           <div className="flex items-center text-[13px] text-gray-500 hover:text-blue-500 cursor-pointer">
@@ -170,7 +168,7 @@ const StatsDashboard = () => {
           </div>
         </div>
         <div className="flex items-center gap-2 mb-3">
-          <h2 className="text-[32px] font-bold text-[#202124]">{subscriptions.count.toLocaleString()}</h2>
+          <h2 className="text-[27px] mt-[-10px] font-bold text-[#374151]">{subscriptions.count.toLocaleString()}</h2>
           <div className="flex items-center text-[15px] font-bold text-green-600">{subscriptions.growth}% <ArrowUpRight size={16} /></div>
         </div>
         <div className="mt-auto w-full h-[50px]">

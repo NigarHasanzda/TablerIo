@@ -5,7 +5,6 @@ import { ArrowUp, ArrowDown, Plus } from "lucide-react";
 import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 
 
-// Statistika məlumatları (July ayının hər günü üçün, current və lastMonth arasında böyük fərqlərlə)
 const chartData = [
   { day: "1", current: 30, lastMonth: 15 },
   { day: "2", current: 42, lastMonth: 28 },
@@ -22,29 +21,25 @@ const chartData = [
   { day: "13", current: 65, lastMonth: 50 },
   { day: "14", current: 95, lastMonth: 75 },
   { day: "15", current: 55, lastMonth: 40 },
-  // { day: "16", current: 85, lastMonth: 65 },
-  // { day: "17", current: 60, lastMonth: 45 },
-  // { day: "18", current: 90, lastMonth: 80 },
-  // { day: "19", current: 45, lastMonth: 30 },
-  // { day: "20", current: 75, lastMonth: 55 },
-  // { day: "21", current: 50, lastMonth: 35 },
-  // { day: "22", current: 90, lastMonth: 70 },
-  // { day: "23", current: 65, lastMonth: 45 },
-  // { day: "24", current: 105, lastMonth: 80 },
-  // { day: "25", current: 70, lastMonth: 50 },
-  // { day: "26", current: 95, lastMonth: 65 },
-  // { day: "27", current: 55, lastMonth: 35 },
-  // { day: "28", current: 100, lastMonth: 75 },
-  // { day: "29", current: 80, lastMonth: 55 },
-  // { day: "30", current: 110, lastMonth: 85 },
-  // { day: "31", current: 90, lastMonth: 10 },
+  { day: "16", current: 85, lastMonth: 65 },
+  { day: "17", current: 60, lastMonth: 45 },
+  { day: "18", current: 90, lastMonth: 80 },
+  { day: "19", current: 45, lastMonth: 30 },
+  { day: "20", current: 75, lastMonth: 55 },
+  { day: "21", current: 50, lastMonth: 35 },
+  { day: "22", current: 90, lastMonth: 70 },
+  { day: "23", current: 65, lastMonth: 45 },
+  { day: "24", current: 105, lastMonth: 80 },
+  { day: "25", current: 0, lastMonth: 50 },
+  { day: "26", current: 95, lastMonth: 65 },
+  { day: "27", current: 55, lastMonth: 35 },
+  { day: "28", current: 100, lastMonth: 75 },
+  { day: "29", current: 80, lastMonth: 55 },
+  { day: "30", current: 110, lastMonth: 85 },
+  { day: "31", current: 90, lastMonth: 10 },
 ];
 
 
-
-
-
-// Tooltip üçün interface
 interface TooltipProps {
   active?: boolean;
   payload?: any;
@@ -54,7 +49,7 @@ interface TooltipProps {
 const CustomTooltip: React.FC<TooltipProps> = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
     return (
-      <div className="bg-[#1e293b] text-white p-3 rounded-lg shadow-xl border border-slate-700 text-[12px]">
+      <div className="bg-[#374151] text-white p-3 rounded-lg shadow-xl border border-slate-700 text-[12px]">
         <p className="font-bold mb-1 border-b border-slate-600 pb-1">July {label}</p>
         <p className="text-blue-400">
           Visitors: <span className="font-bold text-white">{payload[0].value}</span>
@@ -73,10 +68,10 @@ const Dashboard: React.FC = () => {
     <div className="mx-auto w-[72.5%]   py-8 font-sans">
       <div className="mx-auto">
 
-        <div className="flex justify-between items-center mb-8">
+        <div className="flex justify-between items-center mb-5">
           <div>
             <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Overview</p>
-            <h1 className="text-2xl font-bold text-[#1e293b]">Dashboard</h1>
+            <h1 className="text-[20px] font-bold text-[#374151]">Dashboard</h1>
           </div>
           <div className="flex gap-3">
             <button className="px-5 py-2.5 bg-white border border-gray-200 rounded-xl text-sm font-semibold text-gray-700 hover:bg-gray-50 transition shadow-sm">
@@ -91,7 +86,7 @@ const Dashboard: React.FC = () => {
         <div className="grid grid-cols-12 gap-6">
           <div className="col-span-12 h-[260px] shadow-sm lg:col-span-6 bg-[linear-gradient(0deg,rgba(255,255,255,1)_74%,rgba(222,236,249,1)_100%)] px-5 py-5 rounded-[8px] border border-blue-50 relative flex flex-col justify-between ">
             <div>
-              <h2 className="text-[21px] font-bold text-[#1e293b]">Welcome back, Paweł</h2>
+              <h2 className="text-[21px] font-bold text-[#374151]">Welcome back, Paweł</h2>
               <p className="text-gray-500 text-[14px] font-[500] w-[50%] mt-2">You have 5 new messages and 2 new notifications.</p>
             </div>
             <div className="absolute right-4 top-1/2 -translate-y-1/2 opacity-90 sm:block">
@@ -125,10 +120,10 @@ const Dashboard: React.FC = () => {
           <div className="col-span-12 md:col-span-6 lg:col-span-3 bg-white p-4 rounded-[12px] h-[260px] border border-gray-100 shadow-sm flex flex-col overflow-hidden">
             <p className="text-[13px] font-medium text-slate-500 uppercase tracking-wider">Total Users</p>
             <div className="flex items-center gap-3 mt-1">
-              <h2 className="text-[30px] mt-[-6px] font-[700] text-[#1e293b] tracking-tight">75,782</h2>
+              <h2 className="text-[27px] mt-[-6px] font-[700] text-[#374151] tracking-tight">75,782</h2>
               <span className="text-[14px] font-semibold text-emerald-500 flex items-center gap-0.5">2% <ArrowUp size={13} strokeWidth={2} /></span>
             </div>
-            <p className="text-[13.5px] text-slate-600 mt-1 font-normal">24,635 users increased from last month</p>
+            <p className="text-[14px] text-slate-600 mt-1 font-normal">24,635 users increased from last month</p>
 
             <div className="mt-auto w-full h-[100px] -ml-2">
               <ResponsiveContainer width="110%" height="100%">
@@ -153,7 +148,7 @@ const Dashboard: React.FC = () => {
             </p>
 
             <div className="flex items-center gap-3 mt-1.5 mb-9">
-              <h2 className="text-[30px] mt-[-6px] font-[700] text-[#1e293b] tracking-tight">
+              <h2 className="text-[27px] mt-[-6px] font-[700] text-[#374151] tracking-tight">
                 25,782
               </h2>
               <span className="text-[14px] font-bold text-red-400 flex items-center gap-0.5">
@@ -170,25 +165,22 @@ const Dashboard: React.FC = () => {
                   fill="none"
                   stroke="#f1f5f9"
                   strokeWidth="19"
-                  strokeDasharray={2 * Math.PI * 50 * 0.70} // 270°
+                  strokeDasharray={2 * Math.PI * 50 * 0.70} 
                   strokeDashoffset={0}
-                  strokeLinecap="butt"    // Küncələk alt hissə
+                  strokeLinecap="butt"  
                 />
-                {/* Aktiv hissə (göy) */}
                 <circle
                   cx="60"
                   cy="60"
                   r="50"
                   fill="none"
                   stroke="#0066ff"
-                  strokeWidth="16"        // Qalınlıq artırıldı
-                  strokeDasharray={2 * Math.PI * 50 * 0.75} // 270°
-                  strokeDashoffset={2 * Math.PI * 50 * 0.75 * (1 - 0.7)} // 70% aktiv
-                  strokeLinecap="butt"    // Küncələk uclar
+                  strokeWidth="16"       
+                  strokeDasharray={2 * Math.PI * 50 * 0.75} 
+                  strokeDashoffset={2 * Math.PI * 50 * 0.75 * (1 - 0.7)} 
+                  strokeLinecap="butt"    
                 />
               </svg>
-
-              {/* Mərkəzdəki faiz */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <span className="text-[28px] font-[300]">70%</span>
               </div>

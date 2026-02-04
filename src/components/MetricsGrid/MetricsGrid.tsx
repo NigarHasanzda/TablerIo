@@ -1,7 +1,12 @@
-import React from 'react';
-import { ShoppingCart, Facebook } from 'lucide-react';
-import XIcon from '@mui/icons-material/X';
-import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+"use client";
+
+import React from "react";
+import { ShoppingCart, Facebook } from "lucide-react";
+import dynamic from "next/dynamic";
+
+// MUI Icons Client-Only
+const XIcon = dynamic(() => import("@mui/icons-material/X"), { ssr: false });
+const AttachMoneyIcon = dynamic(() => import("@mui/icons-material/AttachMoney"), { ssr: false });
 
 interface MetricItem {
   icon: React.ElementType; // Həm Lucide, həm MUI iconları üçün generic tip
@@ -32,7 +37,7 @@ const MetricsGrid: React.FC = () => {
     },
     {
       icon: XIcon,
-      bgColor: "bg-red-500",
+      bgColor: "bg-black",
       count: "623",
       label: "Shares",
       footerCount: "16",
@@ -51,24 +56,22 @@ const MetricsGrid: React.FC = () => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 p-4 w-[74.4%] mx-auto mb-8">
       {metrics.map((item, idx) => {
-        const IconComponent = item.icon; 
+        const IconComponent = item.icon;
         return (
           <div
             key={idx}
             className="flex items-center h-[80px] p-5 bg-white rounded-xl border border-gray-100 shadow-sm transition-transform duration-200"
           >
-
             <div className={`${item.bgColor} p-3 rounded-lg flex items-center justify-center shrink-0`}>
-              <IconComponent size={22} className="text-white" />
+              <IconComponent size={22} className="text-[white]" /> 
             </div>
 
-            {/* Məlumat Bloqu */}
             <div className="ml-4 flex flex-col justify-center overflow-hidden">
               <div className="flex items-baseline gap-1.5">
-                <span className="text-slate-700 font-medium text-sm capitalize">{item.count}</span>
-                <span className="text-slate-700 font-medium text-sm capitalize">{item.label}</span>
+                <span className="text-[#374151] font-medium text-sm capitalize">{item.count}</span>
+                <span className="text-[#374151] font-medium text-sm capitalize">{item.label}</span>
               </div>
-              <p className="text-slate-400 text-[14.5px] mt-1.5 font-[500] leading-tight truncate">
+              <p className="text-[#374151] text-[14.5px] mt-1.5 font-[500] leading-tight truncate">
                 {item.footerCount} {item.footerLabel}
               </p>
             </div>
