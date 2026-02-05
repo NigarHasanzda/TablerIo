@@ -7,7 +7,7 @@ import {
   XAxis,
   YAxis,
   CartesianGrid,
-  Tooltip,
+  Tooltip as RechartsTooltip,
   ResponsiveContainer,
 } from "recharts";
 
@@ -20,6 +20,7 @@ import {
 const geoUrl =
   "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
 
+// Country user data
 const countryUsers: Record<string, number> = {
   USA: 12000,
   Brazil: 8500,
@@ -38,12 +39,11 @@ const countryUsers: Record<string, number> = {
   Mexico: 4500,
 };
 
-
 const normalize = (name: string) =>
   name.replace(/\s/g, "").replace("&", "").replace(".", "");
 
 // Color scale
-const getCountryColor = (geo: { properties: { name: string } }) => {
+const getCountryColor = (geo: GeographyType) => {
   const name = normalize(geo.properties.name);
   const users = countryUsers[name] || 0;
 
@@ -55,6 +55,7 @@ const getCountryColor = (geo: { properties: { name: string } }) => {
   return "#c6dbef";
 };
 
+// Traffic data for chart
 const trafficData = [
   { name: "24 Jun", a: 5, b: 3, c: 2 },
   { name: "", a: 12, b: 5, c: 4 },
@@ -77,13 +78,18 @@ const trafficData = [
   { name: "", a: 10, b: 4, c: 2 },
 ];
 
-
+// TypeScript tipleri
 type TooltipState = {
   show: boolean;
   name: string;
   users: number;
   x: number;
   y: number;
+};
+
+type GeographyType = {
+  rsmKey: string;
+  properties: { name: string };
 };
 
 export default function LocationTraffic() {
@@ -96,7 +102,7 @@ export default function LocationTraffic() {
   });
 
   return (
-    <div className="bg-[#f8fafc] h-fit">
+    <div className="bg-[#f8fafc] mt-[-25px] h-fit">
       <div className="w-[73%] mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
 
         {/* ================= TRAFFIC SUMMARY ================= */}
@@ -113,22 +119,18 @@ export default function LocationTraffic() {
                   vertical={false}
                   stroke="#f1f3f5"
                 />
-
                 <XAxis
                   dataKey="name"
                   axisLine={false}
                   tickLine={false}
                   tick={{ fill: "#626976", fontSize: 12 }}
                 />
-
                 <YAxis
                   axisLine={false}
                   tickLine={false}
                   tick={{ fill: "#626976", fontSize: 12 }}
                 />
-
-                <Tooltip cursor={{ fill: "#f8fafc" }} />
-
+                <RechartsTooltip cursor={{ fill: "#f8fafc" }} />
                 <Bar dataKey="a" stackId="stack" fill="#066FD1" barSize={8} />
                 <Bar dataKey="b" stackId="stack" fill="#4299e1" barSize={8} />
                 <Bar
@@ -143,7 +145,7 @@ export default function LocationTraffic() {
           </div>
         </div>
 
-
+        {/* ================= LOCATION MAP ================= */}
         <div className="bg-white rounded-lg border border-[#e6e8e9] shadow-sm p-6 relative">
           <h3 className="text-[16px] font-semibold text-[#1d273b] mb-4">
             Locations
@@ -152,7 +154,7 @@ export default function LocationTraffic() {
           <div className="w-full h-[300px] relative">
             <ComposableMap projection="geoMercator" className="w-full h-full">
               <Geographies geography={geoUrl}>
-                {({ geographies }) =>
+                {({ geographies }: { geographies: GeographyType[] }) =>
                   geographies.map((geo) => {
                     const name = normalize(geo.properties.name);
                     const users = countryUsers[name] || 0;
@@ -160,7 +162,7 @@ export default function LocationTraffic() {
                     return (
                       <Geography
                         key={geo.rsmKey}
-                        geography={geo}
+                        geography={geo as any}
                         fill={getCountryColor(geo)}
                         stroke="#ffffff"
                         strokeWidth={0.4}

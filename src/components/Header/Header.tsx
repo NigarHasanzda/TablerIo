@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import Link from 'next/link'; // Path-lar üçün Link əlavə edildi
+import Link from 'next/link';
 import Avatar from '@mui/material/Avatar';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import NightlightOutlinedIcon from '@mui/icons-material/NightlightOutlined';
@@ -17,12 +17,15 @@ import ExtensionOutlined from '@mui/icons-material/ExtensionOutlined';
 import CardGiftcardOutlined from '@mui/icons-material/CardGiftcardOutlined';
 import HelpOutlineOutlined from '@mui/icons-material/HelpOutlineOutlined';
 import SettingsOutlined from '@mui/icons-material/SettingsOutlined';
+import MenuIcon from '@mui/icons-material/Menu'; // Mobil menyu üçün icon
+import CloseIcon from '@mui/icons-material/Close'; // Bağlamaq üçün icon
+import MobileNav from './MobileNav'; // Sənin yazdığın MobileNav komponenti
 
 /* ================= TYPES ================= */
 interface NavItemType {
   label: string;
   icon: React.ElementType;
-  path: string; // Path əlavə edildi
+  path: string;
   hasDropdown?: boolean;
   active?: boolean;
   mega?: boolean;
@@ -30,7 +33,7 @@ interface NavItemType {
 
 interface MenuItemType {
   label: string;
-  path: string; // Path əlavə edildi
+  path: string;
   new?: boolean;
   arrow?: boolean;
 }
@@ -205,37 +208,63 @@ const badgeStyle = "text-[11px] bg-green-100 text-green-600 px-1.5 py-0.5 rounde
 
 const Header: React.FC = () => {
   const [langOpen, setLangOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <header className="w-full border-b border-gray-200 bg-white font-sans">
-      <div className="max-w-[73%] mx-auto py-1 px-4 h-16 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-[#206bc4] rounded flex items-center justify-center">
-            <span className="text-white font-bold text-lg">t.</span>
-          </div>
-          <span className="text-xl font-semibold text-gray-800">tabler</span>
-        </Link>
+    <header className="w-full border-b border-gray-200 bg-white font-sans relative">
+      <div className="max-w-[100%] lg:max-w-[73%] mx-auto py-1 px-4 h-16 flex items-center justify-between">
+
+
+        <div className="flex items-center gap-4">
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="lg:hidden text-gray-600 focus:outline-none"
+          >
+            {isMobileMenuOpen ? <CloseIcon /> : <MenuIcon />}
+          </button>
+
+          <Link href="/" className="flex items-center gap-2">
+            <div className="w-8 h-8 bg-[#206bc4] rounded flex items-center justify-center">
+              <span className="text-white font-bold text-lg">t.</span>
+            </div>
+            <span className="text-xl font-semibold text-gray-800">tabler</span>
+          </Link>
+        </div>
+
 
         <div className="flex items-center gap-4">
           <button className="hidden lg:flex items-center gap-1 px-3 py-1.5 border border-gray-300 rounded-md text-sm font-medium text-pink-500 hover:bg-gray-50">
             <FavoriteBorderIcon sx={{ fontSize: 18 }} /> Sponsor
           </button>
 
-          <div className="flex items-center gap-3 text-gray-600">
-            <NightlightOutlinedIcon className="cursor-pointer hover:text-blue-500" />
+          <div className="hidden md:flex items-center gap-3 text-gray-600">
+            <NightlightOutlinedIcon
+              className="cursor-pointer hover:text-blue-500"
+              sx={{ fontSize: 19, color: '#4B5563' }} // ölçü və rəng
+            />
+
+            {/* Notifications Icon */}
             <div className="relative cursor-pointer hover:text-blue-500">
-              <NotificationsNoneOutlinedIcon />
+              <NotificationsNoneOutlinedIcon
+                sx={{ fontSize: 19, color: '#4B5563' }}
+              />
               <span className="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full border-2 border-white"></span>
             </div>
-            <GridViewIcon className="cursor-pointer hover:text-blue-500" />
+
+            {/* Grid / Mobile Menu Icon */}
+            <GridViewIcon
+              className="cursor-pointer hover:text-blue-500"
+              sx={{ fontSize: 19, color: '#4B5563' }}
+            />
           </div>
 
-          <div className="relative">
+
+          <div className="hidden md:relative md:block">
             <button
               onClick={() => setLangOpen(!langOpen)}
-              className="flex items-center gap-1 text-sm font-medium text-gray-500 hover:text-blue-600"
+              className="flex items-center gap-1 text-[16px] font-medium text-gray-500 hover:text-blue-600"
             >
-              EN <KeyboardArrowDownIcon fontSize="small" />
+              EN
             </button>
             {langOpen && (
               <div className="absolute right-0 mt-2 w-24 bg-white border shadow-lg rounded-md text-sm z-50">
@@ -246,8 +275,8 @@ const Header: React.FC = () => {
             )}
           </div>
 
-          <div className="flex items-center gap-3 border-l pl-4 cursor-pointer">
-            <Avatar src="https://github.com/vhesener.png" sx={{ width: 32, height: 32 }} />
+          <div className="flex items-center gap-3  pl-4 cursor-pointer">
+            <Avatar src="/profile.png" sx={{ width: 32, height: 32 }} />
             <div className="hidden sm:block">
               <p className="text-sm font-medium text-gray-800">Paweł Kuna</p>
               <p className="text-xs text-gray-500">UI Designer</p>
@@ -256,20 +285,33 @@ const Header: React.FC = () => {
         </div>
       </div>
 
-      <div className="w-full border-t border-gray-200"></div>
 
-      <div className="max-w-[73%] mx-auto px-4 py-1">
-        <nav className="flex justify-between">
-          <ul className="flex gap-6">
-            {navItems.map(item => <NavItem key={item.label} {...item} />)}
-          </ul>
-          <Link href="/settings" className="flex items-center gap-1 text-gray-500 py-3 cursor-pointer hover:text-blue-600">
-            <SettingsOutlined fontSize="small" />
-            <span className="text-sm font-medium">Theme Settings</span>
-            <span className="bg-red-500 text-white text-[10px] px-1.5 py-0.5 rounded-full ml-1">New</span>
-          </Link>
-        </nav>
+      <div className="hidden lg:block w-full border-t border-gray-200">
+        <div className="max-w-[73%] mx-auto px-4 py-1">
+          <nav className="flex justify-between">
+            <ul className="flex gap-6">
+              {navItems.map(item => <NavItem key={item.label} {...item} />)}
+            </ul>
+            <Link
+              href="/settings"
+              className="relative flex items-center gap-1 text-gray-500 py-3 cursor-pointer hover:text-blue-600"
+            >
+              <SettingsOutlined fontSize="small" />
+              <span className="text-sm font-medium">Theme Settings</span>
+              {/* New badge */}
+              <span className="absolute top-0.5 -right-[30px] bg-red-500 text-white text-[10px] px-[4px] py-[1px] rounded-[7px]">
+                New
+              </span>
+            </Link>
+
+          </nav>
+        </div>
       </div>
+      {isMobileMenuOpen && (
+        <div className="lg:hidden absolute top-16 left-0 w-full z-[100] bg-white border-t border-gray-200 shadow-xl animate-in slide-in-from-top duration-300">
+          <MobileNav />
+        </div>
+      )}
     </header>
   );
 };

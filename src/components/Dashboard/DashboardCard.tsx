@@ -2,8 +2,7 @@
 
 import React from "react";
 import { ArrowUp, ArrowDown, Plus } from "lucide-react";
-import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
-
+import { AreaChart, Area, Tooltip, ResponsiveContainer } from "recharts";
 
 const chartData = [
   { day: "1", current: 30, lastMonth: 15 },
@@ -39,15 +38,8 @@ const chartData = [
   { day: "31", current: 90, lastMonth: 10 },
 ];
 
-
-interface TooltipProps {
-  active?: boolean;
-  payload?: any;
-  label?: string;
-}
-
-const CustomTooltip: React.FC<TooltipProps> = ({ active, payload, label }) => {
-  if (active && payload && payload.length) {
+const CustomTooltip = ({ active, payload, label }: any) => {
+  if (active && payload?.length) {
     return (
       <div className="bg-[#374151] text-white p-3 rounded-lg shadow-xl border border-slate-700 text-[12px]">
         <p className="font-bold mb-1 border-b border-slate-600 pb-1">July {label}</p>
@@ -63,131 +55,119 @@ const CustomTooltip: React.FC<TooltipProps> = ({ active, payload, label }) => {
   return null;
 };
 
-const Dashboard: React.FC = () => {
+const Dashboard = () => {
   return (
-    <div className="mx-auto w-[72.5%]   py-8 font-sans">
-      <div className="mx-auto">
+    <div className="mx-auto w-full  max-w-[72.4%] px-4 lg:px-0 py-8 font-sans">
+      <div className="flex flex-col md:flex-row justify-between gap-4 mb-5">
+        <div>
+          <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Overview</p>
+          <h1 className="text-[20px] font-bold text-[#374151]">Dashboard</h1>
+        </div>
 
-        <div className="flex justify-between items-center mb-5">
+        <div className="flex flex-wrap gap-3">
+          <button className="px-5 py-2.5 bg-white border border-gray-200 rounded-xl text-sm font-semibold text-gray-700 hover:bg-gray-50 shadow-sm">
+            New view
+          </button>
+          <button className="px-5 py-2.5 bg-[#066fd1] text-white rounded-xl text-sm font-semibold flex items-center gap-2 hover:bg-blue-700 shadow-sm">
+            <Plus size={18} /> Create new report
+          </button>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-12 gap-6">
+
+        {/* WELCOME CARD */}
+        <div className="col-span-12 lg:col-span-6 h-[240px] shadow-sm bg-[linear-gradient(0deg,rgba(255,255,255,1)_74%,rgba(222,236,249,1)_100%)] px-5 py-5 rounded-[8px] border border-blue-50 relative flex flex-col justify-between">
           <div>
-            <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Overview</p>
-            <h1 className="text-[20px] font-bold text-[#374151]">Dashboard</h1>
-          </div>
-          <div className="flex gap-3">
-            <button className="px-5 py-2.5 bg-white border border-gray-200 rounded-xl text-sm font-semibold text-gray-700 hover:bg-gray-50 transition shadow-sm">
-              New view
-            </button>
-            <button className="px-5 py-2.5 bg-[#066fd1] text-white rounded-xl text-sm font-semibold flex items-center gap-2 hover:bg-blue-700 transition shadow-sm">
-              <Plus size={18} /> Create new report
-            </button>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-12 gap-6">
-          <div className="col-span-12 h-[260px] shadow-sm lg:col-span-6 bg-[linear-gradient(0deg,rgba(255,255,255,1)_74%,rgba(222,236,249,1)_100%)] px-5 py-5 rounded-[8px] border border-blue-50 relative flex flex-col justify-between ">
-            <div>
-              <h2 className="text-[21px] font-bold text-[#374151]">Welcome back, Paweł</h2>
-              <p className="text-gray-500 text-[14px] font-[500] w-[50%] mt-2">You have 5 new messages and 2 new notifications.</p>
-            </div>
-            <div className="absolute right-4 top-1/2 -translate-y-1/2 opacity-90 sm:block">
-              <div className="relative w-[250px] h-[300px] flex items-center justify-center">
-                <img src="/logo.png" alt="Dashboard Illustration" className="relative !w-[600px] h-[300px] object-contain" />
-              </div>
-            </div>
-            <div className="flex gap-10 mt-8">
-              <div className="space-y-1">
-                <p className="text-[12px] font-bold text-gray-500 uppercase tracking-tighter">Today's Sales</p>
-                <div className="flex items-center gap-1">
-                  <span className="text-[17px] font-black text-slate-800">6,782</span>
-                  <span className="text-xs font-bold text-green-500 flex items-center">7% <ArrowUp size={12} /></span>
-                </div>
-                <div className="w-20 h-[4px] bg-gray-100 rounded-full overflow-hidden">
-                  <div className="w-[70%] h-full bg-green-500"></div>
-                </div>
-              </div>
-              <div className="space-y-1">
-                <p className="text-[12px] font-bold text-gray-500 uppercase tracking-tighter">Growth Rate</p>
-                <div className="flex items-center gap-1">
-                  <span className="text-[17px] font-black text-slate-800">78,4%</span>
-                  <span className="text-xs font-bold text-red-500 flex items-center">-1% <ArrowDown size={12} /></span>
-                </div>
-                <div className="w-20 h-[4px] bg-gray-100 rounded-full overflow-hidden">
-                  <div className="w-[50%] h-full bg-red-500"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="col-span-12 md:col-span-6 lg:col-span-3 bg-white p-4 rounded-[12px] h-[260px] border border-gray-100 shadow-sm flex flex-col overflow-hidden">
-            <p className="text-[13px] font-medium text-slate-500 uppercase tracking-wider">Total Users</p>
-            <div className="flex items-center gap-3 mt-1">
-              <h2 className="text-[27px] mt-[-6px] font-[700] text-[#374151] tracking-tight">75,782</h2>
-              <span className="text-[14px] font-semibold text-emerald-500 flex items-center gap-0.5">2% <ArrowUp size={13} strokeWidth={2} /></span>
-            </div>
-            <p className="text-[14px] text-slate-600 mt-1 font-normal">24,635 users increased from last month</p>
-
-            <div className="mt-auto w-full h-[100px] -ml-2">
-              <ResponsiveContainer width="110%" height="100%">
-                <AreaChart data={chartData} margin={{ top: 0, right: 0, left: 0, bottom: 0 }}>
-                  <defs>
-                    <linearGradient id="colorCurrent" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.1} />
-                      <stop offset="95%" stopColor="#3b82f6" stopOpacity={0} />
-                    </linearGradient>
-                  </defs>
-                  <Tooltip content={<CustomTooltip />} cursor={{ stroke: '#3b82f6', strokeWidth: 1 }} />
-                  <Area type="monotone" dataKey="lastMonth" stroke="#cbd5e1" strokeWidth={2} strokeDasharray="4 4" fill="transparent" dot={false} />
-                  <Area type="monotone" dataKey="current" stroke="#3b82f6" strokeWidth={3} fillOpacity={1} fill="url(#colorCurrent)" dot={false} activeDot={{ r: 4, strokeWidth: 2, fill: '#fff', stroke: '#3b82f6' }} />
-                </AreaChart>
-              </ResponsiveContainer>
-            </div>
-          </div>
-          <div className="col-span-12 md:col-span-6 lg:col-span-3 bg-white p-6 rounded-[16px] h-[260px] border border-gray-100 shadow-sm flex flex-col font-sans">
-
-            <p className="text-[13px] font-medium text-slate-500 uppercase tracking-wider">
-              Active Users
+            <h2 className="text-[21px] font-bold text-[#374151]">Welcome back, Paweł</h2>
+            <p className="text-gray-500 text-[14px] font-[500] w-full md:w-[50%] mt-2">
+              You have 5 new messages and 2 new notifications.
             </p>
+          </div>
 
-            <div className="flex items-center gap-3 mt-1.5 mb-9">
-              <h2 className="text-[27px] mt-[-6px] font-[700] text-[#374151] tracking-tight">
-                25,782
-              </h2>
-              <span className="text-[14px] font-bold text-red-400 flex items-center gap-0.5">
-                -1% <ArrowDown size={16} strokeWidth={3} />
-              </span>
+          {/* Illustration — hidden on mobile */}
+          <div className="hidden sm:block absolute right-4 top-1/2 -translate-y-1/2 opacity-90">
+            <img src="/logo.png" className="w-[280px] h-[280px] object-contain" />
+          </div>
+
+          <div className="flex gap-6 mt-6 flex-wrap">
+            <div>
+              <p className="text-[12px] font-bold text-gray-500 uppercase tracking-tighter">Today's Sales</p>
+              <div className="flex items-center gap-1">
+                <span className="text-[17px] font-black text-slate-800">6,782</span>
+                <span className="text-xs font-bold text-green-500 flex items-center">
+                  7% <ArrowUp size={12} />
+                </span>
+              </div>
+              <div className="w-20 h-[4px] bg-gray-100 rounded-full overflow-hidden">
+                <div className="w-[70%] h-full bg-green-500"></div>
+              </div>
             </div>
 
-            <div className="relative w-full flex justify-center mt-auto">
-              <svg className="w-[420px] h-[120px] rotate-[150deg]" viewBox="0 0 120 120">
-                <circle
-                  cx="60"
-                  cy="60"
-                  r="50"
-                  fill="none"
-                  stroke="#f1f5f9"
-                  strokeWidth="19"
-                  strokeDasharray={2 * Math.PI * 50 * 0.70} 
-                  strokeDashoffset={0}
-                  strokeLinecap="butt"  
-                />
-                <circle
-                  cx="60"
-                  cy="60"
-                  r="50"
-                  fill="none"
-                  stroke="#0066ff"
-                  strokeWidth="16"       
-                  strokeDasharray={2 * Math.PI * 50 * 0.75} 
-                  strokeDashoffset={2 * Math.PI * 50 * 0.75 * (1 - 0.7)} 
-                  strokeLinecap="butt"    
-                />
-              </svg>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span className="text-[28px] font-[300]">70%</span>
+            <div>
+              <p className="text-[12px] font-bold text-gray-500 uppercase tracking-tighter">Growth Rate</p>
+              <div className="flex items-center gap-1">
+                <span className="text-[17px] font-black text-slate-800">78,4%</span>
+                <span className="text-xs font-bold text-red-500 flex items-center">
+                  -1% <ArrowDown size={12} />
+                </span>
+              </div>
+              <div className="w-20 h-[4px] bg-gray-100 rounded-full overflow-hidden">
+                <div className="w-[50%] h-full bg-red-500"></div>
               </div>
             </div>
           </div>
-
         </div>
+
+        {/* TOTAL USERS */}
+        <div className="col-span-12 md:col-span-6 lg:col-span-3 bg-white p-4 rounded-[12px] h-[236px] border border-gray-100 shadow-sm flex flex-col overflow-hidden">
+          <p className="text-[13px] font-medium text-slate-500 uppercase tracking-wider">Total Users</p>
+
+          <div className="flex items-center gap-3 mt-1">
+            <h2 className="text-[27px] font-[700] text-[#374151]">75,782</h2>
+            <span className="text-[14px] font-semibold text-emerald-500 flex items-center">
+              2% <ArrowUp size={13} />
+            </span>
+          </div>
+
+          <p className="text-[14px] text-slate-600 mt-1">
+            24,635 users increased from last month
+          </p>
+
+          {/* FULL WIDTH CHART FIX */}
+          <div className="mt-auto h-[110px] -mx-4">
+            <ResponsiveContainer width="100%" height="100%">
+              <AreaChart data={chartData} margin={{ top: 0, right: 0, left: 0, bottom: 0 }}>
+                <Tooltip content={<CustomTooltip />} cursor={{ strokeWidth: 1 }} />
+                <Area type="monotone" dataKey="lastMonth" stroke="#9CA3AF" strokeWidth={1} strokeDasharray="3 3" fill="transparent" dot={false} />
+                <Area type="monotone" dataKey="current" stroke="#3b82f6" strokeWidth={3} fill="transparent" dot={false} />
+              </AreaChart>
+            </ResponsiveContainer>
+          </div>
+        </div>
+
+        {/* ACTIVE USERS */}
+        <div className="col-span-12 md:col-span-6 lg:col-span-3 bg-white p-6 rounded-[16px] h-[236px] border border-gray-100 shadow-sm flex flex-col">
+          <p className="text-[13px] font-medium text-slate-500 uppercase tracking-wider">Active Users</p>
+
+          <div className="flex items-center gap-3 mt-1.5 mb-6">
+            <h2 className="text-[27px] font-[700] text-[#374151]">25,782</h2>
+            <span className="text-[14px] font-bold text-red-400 flex items-center">
+              -1% <ArrowDown size={16} />
+            </span>
+          </div>
+
+          <div className="relative w-full flex justify-center mt-auto">
+            <svg className="w-full max-w-[420px] h-[120px] rotate-[135deg]" viewBox="0 0 120 120">
+              <circle cx="60" cy="60" r="50" fill="none" stroke="#f1f5f9" strokeWidth="19" strokeDasharray={2 * Math.PI * 50 * 0.7} />
+              <circle cx="60" cy="60" r="50" fill="none" stroke="#0066ff" strokeWidth="16" strokeDasharray={2 * Math.PI * 50 * 0.75} />
+            </svg>
+            <div className="absolute inset-0 flex items-center justify-center">
+              <span className="text-[28px] font-[300]">70%</span>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   );

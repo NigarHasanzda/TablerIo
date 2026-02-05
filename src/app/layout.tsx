@@ -14,7 +14,9 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
-      <body className="flex flex-col min-h-screen bg-gray-50">
+      <body className="flex flex-col min-h-screen bg-gray-50"
+       suppressHydrationWarning
+       >
         <HeaderWrapper />
         <main className="flex-1">
           {children}
