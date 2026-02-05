@@ -4,6 +4,8 @@ import DeveloperActivity from "@/components/DevelopmentActivity/DevelopmentActiv
 import LocationTraffic from "@/components/LocationTraffic/LocationTrafic";
 import MetricsGrid from "@/components/MetricsGrid/MetricsGrid";
 import StatCard from "@/components/StatCards/StatCard";
+import SocialMediaTasks from "@/components/SocialMediaTask/SocialMediaTask";
+import InvoicesService from "@/components/Invoices/InvoicesService";
 
 export default function Home() {
   return (
@@ -14,6 +16,8 @@ export default function Home() {
         <MetricsGrid />
         <LocationTraffic />
         <DeveloperActivity />
+        <SocialMediaTasks/>
+        <InvoicesService/>
       </div>
     </>
   );

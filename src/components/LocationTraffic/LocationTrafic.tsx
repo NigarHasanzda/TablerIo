@@ -78,7 +78,6 @@ const trafficData = [
   { name: "", a: 10, b: 4, c: 2 },
 ];
 
-// TypeScript tipleri
 type TooltipState = {
   show: boolean;
   name: string;
@@ -105,7 +104,6 @@ export default function LocationTraffic() {
     <div className="bg-[#f8fafc] mt-[-25px] h-fit">
       <div className="w-[73%] mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
 
-        {/* ================= TRAFFIC SUMMARY ================= */}
         <div className="bg-white rounded-lg border border-[#e6e8e9] shadow-sm p-6">
           <h3 className="text-[16px] font-semibold text-[#1d273b] mb-8">
             Traffic summary

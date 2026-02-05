@@ -14,6 +14,7 @@ const chartData = [
 
 const DeveloperActivitySection = () => {
   const [mounted, setMounted] = useState(false);
+
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -24,7 +25,15 @@ const DeveloperActivitySection = () => {
     { name: "Dunn Slane", action: "posted a status:", target: "Trying to figure things out one step at a time.", time: "now", img: "https://i.pravatar.cc/100?u=3", dot: true },
     { name: "Emmy Levet", action: "created a new project:", target: "Smart Morning Alarm", time: "4 days ago", img: "https://i.pravatar.cc/100?u=4", dot: true },
     { name: "Maryjo Lebarree", action: "liked your photo", target: "", time: "now", img: "https://i.pravatar.cc/100?u=5", dot: false },
-    { name: "Egan Poetz", action: "registered a new client:", target: "Trilla Solutions", time: "1 day ago", img: "https://i.pravatar.cc/100?u=6", dot: false }
+    { name: "Egan Poetz", action: "registered a new client:", target: "Trilla Solutions", time: "1 day ago", img: "https://i.pravatar.cc/100?u=6", dot: false },
+        { name: "Mallory Hulme", action: "'s birthday today", target: "", time: "now", img: "https://i.pravatar.cc/100?u=2", dot: true },
+    { name: "Dunn Slane", action: "posted a status:", target: "Trying to figure things out one step at a time.", time: "now", img: "https://i.pravatar.cc/100?u=3", dot: true },
+    { name: "Emmy Levet", action: "created a new project:", target: "Smart Morning Alarm", time: "4 days ago", img: "https://i.pravatar.cc/100?u=4", dot: true },
+    { name: "Maryjo Lebarree", action: "liked your photo", target: "", time: "now", img: "https://i.pravatar.cc/100?u=5", dot: false },
+        { name: "Mallory Hulme", action: "'s birthday today", target: "", time: "now", img: "https://i.pravatar.cc/100?u=2", dot: true },
+    { name: "Dunn Slane", action: "posted a status:", target: "Trying to figure things out one step at a time.", time: "now", img: "https://i.pravatar.cc/100?u=3", dot: true },
+    { name: "Emmy Levet", action: "created a new project:", target: "Smart Morning Alarm", time: "4 days ago", img: "https://i.pravatar.cc/100?u=4", dot: true },
+    { name: "Maryjo Lebarree", action: "liked your photo", target: "", time: "now", img: "https://i.pravatar.cc/100?u=5", dot: false },
   ];
 
   const commits = [
@@ -39,14 +48,14 @@ const DeveloperActivitySection = () => {
   if (!mounted) return <div className="min-h-screen bg-transparent" />;
 
   return (
-    <div className="p-6 min-h-screen font-sans antialiased text-[#495057]">
+    <div className="p-6 h-fit font-sans antialiased  text-[#495057]">
       <div className="w-[74.9%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6">
         
         {/* SOL KOLON */}
-        <div className="space-y-6">
+        <div className="space-y-3">
           <div className="bg-white rounded-md shadow-sm border border-[#e9ecef] p-5">
-            <h4 className="text-[13px] font-semibold mb-4 text-[#495057]">
-              Using Storage <span className="font-bold">6854.45 MB</span> <span className="text-gray-400 font-normal text-xs ml-1">of 8 GB</span>
+            <h4 className="text-[14px] font-[500] mb-4 text-[#495057]">
+              Using Storage <span className="font-bold">6854.45 MB</span> <span className="text-[#495057e0] ">of 8 GB</span>
             </h4>
             <div className="flex h-2 w-full rounded-full overflow-hidden bg-[#e9ecef] mb-4">
               <div className="bg-[#206bc4]" style={{ width: '35%' }}></div>
@@ -70,18 +79,18 @@ const DeveloperActivitySection = () => {
           </div>
 
           <div className="bg-white rounded-md shadow-sm border border-[#e9ecef] overflow-hidden">
-            {/* Scrollbar gizleme Tailwind class'ı globals.css'de tanımlanmalıdır */}
-            <div className="max-h-[480px] overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+
+            <div className="h-[459px] overflow-y-auto scroll-custom  ">
               {notifications.map((n, i) => (
                 <div key={i} className="flex items-center p-4 border-b border-[#f1f3f5] last:border-0 hover:bg-[#f8f9fa] transition-colors">
-                  <img src={n.img} alt="" className="w-9 h-9 rounded-full mr-3 shrink-0" />
+                  <img src={n.img} alt="" className="w-10 h-10 rounded-full mr-3 shrink-0" />
                   <div className="flex-1 min-w-0">
-                    <p className="text-[13px] leading-snug">
-                      <span className="font-bold text-[#212529]">{n.name}</span> {n.action} <span className="font-bold text-[#212529]">{n.target}</span>
+                    <p className="text-[14.9px] leading-snug">
+                      <span className="font-bold text-[#212529]">{n.name}</span> {n.action} <span className="font-bold text-[#374151]">{n.target}</span>
                     </p>
                     <span className="text-[11px] text-gray-400 uppercase font-medium">{n.time}</span>
                   </div>
-                  {n.dot && <div className="w-1.5 h-1.5 rounded-full bg-[#206bc4] ml-2"></div>}
+                  {n.dot && <div className="w-2 h-2 rounded-full bg-[#206bc4] ml-2"></div>}
                 </div>
               ))}
             </div>
@@ -89,7 +98,7 @@ const DeveloperActivitySection = () => {
         </div>
 
         {/* SAĞ KOLON - Development Activity */}
-        <div className="bg-white rounded-md shadow-sm border border-[#e9ecef] flex flex-col overflow-hidden">
+        <div className="bg-white rounded-md h-[594px] shadow-sm border border-[#e9ecef] flex flex-col overflow-hidden">
           <div className="p-5 pb-0">
             <h3 className="text-[15px] font-bold text-[#212529] mb-4">Development activity</h3>
             <div className="flex items-center gap-4 mb-4">
@@ -138,18 +147,18 @@ const DeveloperActivitySection = () => {
           {/* Commit Tablosu */}
           <div className="mt-auto">
             <div className="grid grid-cols-12 bg-[#f8f9fa] border-t border-[#e9ecef] px-5 py-2">
-              <div className="col-span-2 text-[10px] font-bold text-gray-400 uppercase tracking-widest">User</div>
-              <div className="col-span-7 text-[10px] font-bold text-gray-400 uppercase tracking-widest">Commit</div>
-              <div className="col-span-3 text-[10px] font-bold text-gray-400 uppercase tracking-widest text-right">Date</div>
+              <div className="col-span-1  text-[12px] font-[500] text-[#6B7280] uppercase tracking-widest">User</div>
+              <div className="col-span-7 text-[12px] font-[500] text-[#6B7280] uppercase tracking-widest">Commit</div>
+              <div className="col-span-4  text-[12px] font-[500] text-[#6B7280] uppercase tracking-widest text-center">Date</div>
             </div>
             <div className="divide-y divide-[#f1f3f5]">
               {commits.map((c, i) => (
                 <div key={i} className="grid grid-cols-12 px-5 py-3 items-center hover:bg-[#fbfcfd] transition-colors">
-                  <div className="col-span-2">
-                    <img src={c.userImg} className="w-7 h-7 rounded-full" alt="" />
+                  <div className="col-span-1">
+                    <img src={c.userImg} className="w-9 h-9 rounded-full" alt="" />
                   </div>
-                  <div className="col-span-7 text-[12px] text-[#495057] font-medium truncate pr-4">{c.msg}</div>
-                  <div className="col-span-3 text-[11px] text-gray-400 text-right">{c.date}</div>
+                  <div className="col-span-7 text-[15px] font-[500] text-[#495057] font-medium truncate pr-4">{c.msg}</div>
+                  <div className="col-span-3 text-[14px] font-medium text-[#495057b4] text-right">{c.date}</div>
                 </div>
               ))}
             </div>
