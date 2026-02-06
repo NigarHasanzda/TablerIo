@@ -240,7 +240,7 @@ const Header: React.FC = () => {
           <div className="hidden md:flex items-center gap-3 text-gray-600">
             <NightlightOutlinedIcon
               className="cursor-pointer hover:text-blue-500"
-              sx={{ fontSize: 19, color: '#4B5563' }} // ölçü və rəng
+              sx={{ fontSize: 19, color: '#4B5563' }} 
             />
 
             {/* Notifications Icon */}
