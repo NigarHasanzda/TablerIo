@@ -17,7 +17,7 @@ const Header: React.FC<HeaderProps> = ({ onToggleSidebar }) => {
           type="button"
           onClick={onToggleSidebar}
           className="rounded-md p-1.5 text-gray-600 hover:bg-gray-100"
-          aria-label="Menyunu aç"
+          aria-label="Open menu"
         >
           <Menu className="h-5 w-5" />
         </button>
@@ -35,7 +35,7 @@ const Header: React.FC<HeaderProps> = ({ onToggleSidebar }) => {
         <button
           type="button"
           className="rounded-md p-1.5 text-gray-500 hover:bg-gray-100 hover:text-[#206bc4]"
-          aria-label="Bildirişlər"
+          aria-label="Notifications"
         >
           <span className="relative inline-flex">
             <Bell className="h-[18px] w-[18px]" />
@@ -45,7 +45,7 @@ const Header: React.FC<HeaderProps> = ({ onToggleSidebar }) => {
         <button
           type="button"
           className="hidden rounded-md p-1.5 text-gray-500 hover:bg-gray-100 hover:text-[#206bc4] sm:inline-flex"
-          aria-label="Tema"
+          aria-label="Theme"
         >
           <Moon className="h-[18px] w-[18px]" />
         </button>

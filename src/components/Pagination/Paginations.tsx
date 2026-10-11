@@ -24,7 +24,7 @@ const Pagination: React.FC<PaginationProps> = ({
         onClick={() => currentPage > 1 && onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
         style={btnStyle}
-        aria-label="Əvvəlki səhifə"
+        aria-label="Previous page"
       >
         <ArrowBackIosNewOutlinedIcon style={{ fontSize: 12 }} />
       </button>
@@ -50,7 +50,7 @@ const Pagination: React.FC<PaginationProps> = ({
         onClick={() => currentPage < lastPage && onPageChange(currentPage + 1)}
         disabled={currentPage === lastPage}
         style={btnStyle}
-        aria-label="Sonrakı səhifə"
+        aria-label="Next page"
       >
         <ArrowForwardIosOutlinedIcon style={{ fontSize: 12 }} />
       </button>

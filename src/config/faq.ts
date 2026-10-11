@@ -15,88 +15,88 @@ export type FaqCategory = {
 export const faqCategories: FaqCategory[] = [
   {
     id: "general",
-    title: "Ümumi",
-    description: "Tabler və dashboard haqqında",
+    title: "General",
+    description: "About Tabler and this dashboard",
     icon: HelpCircle,
     color: "bg-blue-500",
     items: [
       {
-        question: "Tabler nədir?",
+        question: "What is Tabler?",
         answer:
-          "Tabler pulsuz və açıq mənbəli admin panel şablonudur. Bu layihə onun vizual dilini Next.js və Tailwind ilə təkrarlayır.",
+          "Tabler is a free, open-source admin dashboard template. This project recreates its look and feel with Next.js and Tailwind CSS.",
       },
       {
-        question: "Pulsuz istifadə oluna bilər?",
+        question: "Can I use it for free?",
         answer:
-          "Bəli, MIT lisenziyası altında fərdi və kommersiya layihələrində istifadə edə bilərsiniz.",
+          "Yes. It is available under the MIT license for personal and commercial projects.",
       },
       {
-        question: "Dashboard necə yenilənir?",
+        question: "How do I update the dashboard?",
         answer:
-          "Repozitoriyadan son dəyişiklikləri çəkin, `pnpm install` işlədin və dev serveri yenidən başladın.",
+          "Pull the latest changes from your repository, run `pnpm install`, and restart the dev server.",
       },
       {
-        question: "Mobil cihazlarda işləyir?",
+        question: "Does it work on mobile?",
         answer:
-          "Bəli. Sidebar mobil menyu kimi açılır, cədvəllər horizontal scroll dəstəkləyir.",
+          "Yes. The sidebar opens as a mobile menu, and tables support horizontal scrolling when needed.",
       },
     ],
   },
   {
     id: "account",
-    title: "Hesab",
-    description: "Abunəlik və profil",
+    title: "Account",
+    description: "Billing and profile",
     icon: CreditCard,
     color: "bg-emerald-500",
     items: [
       {
-        question: "E-poçtu necə dəyişim?",
+        question: "How do I change my email?",
         answer:
-          "Profil → E-poçt bölməsindən yeni ünvan daxil edin və təsdiq linkinə klik edin.",
+          "Go to Profile → Email, enter a new address, and confirm via the verification link.",
       },
       {
-        question: "Abunəliyi ləğv edə bilərəm?",
+        question: "Can I cancel my subscription?",
         answer:
-          "Billing portalından istənilən vaxt ləğv edə bilərsiniz. Ödənişli dövrün sonuna qədər giriş qalır.",
+          "Yes, anytime from the billing portal. Access continues until the end of the paid period.",
       },
       {
-        question: "Geri ödəmə var?",
+        question: "Do you offer refunds?",
         answer:
-          "İllik planlar üçün 14 gün ərzində dəstək komandasına müraciətlə nəzərdən keçirilir.",
+          "Annual plans may be reviewed for refunds within 14 days—contact support with your invoice number.",
       },
       {
-        question: "Komanda üzvləri əlavə etmək",
+        question: "How do I invite team members?",
         answer:
-          "Owner və Admin rolları Settings → Team bölməsindən dəvət göndərə bilər.",
+          "Owners and Admins can send invites from Settings → Team.",
       },
     ],
   },
   {
     id: "technical",
-    title: "Texniki",
-    description: "Deploy və brauzerlər",
+    title: "Technical",
+    description: "Deploy and browsers",
     icon: Wrench,
     color: "bg-violet-500",
     items: [
       {
-        question: "Hansı brauzerlər dəstəklənir?",
+        question: "Which browsers are supported?",
         answer:
-          "Chrome, Firefox, Safari və Edge-in son versiyaları. IE dəstəklənmir.",
+          "Latest Chrome, Firefox, Safari, and Edge. Internet Explorer is not supported.",
       },
       {
-        question: "Dark mode var?",
+        question: "Is there dark mode?",
         answer:
-          "Tabler dark tema dəstəkləyir. Header-dakı ay ikonu ilə (aktiv olduqda) dəyişdirilir.",
+          "Tabler supports dark themes. Use the moon icon in the header when the feature is enabled in your build.",
       },
       {
-        question: "Production deploy",
+        question: "How do I deploy to production?",
         answer:
-          "Vercel və ya Node 20+ host: `pnpm install`, `pnpm build`, lazım gələrsə env dəyişənləri.",
+          "Use Vercel or any Node 20+ host: `pnpm install`, `pnpm build`, and set environment variables if needed.",
       },
       {
-        question: "pnpm və npm",
+        question: "pnpm vs npm",
         answer:
-          "Layihə `pnpm-lock.yaml` istifadə edir. Vercel-də avtomatik pnpm seçilir; lokal üçün `pnpm install` tövsiyə olunur.",
+          "This repo uses `pnpm-lock.yaml`. Vercel picks pnpm automatically; locally, run `pnpm install`.",
       },
     ],
   },

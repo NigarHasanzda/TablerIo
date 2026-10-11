@@ -18,43 +18,43 @@ export type NavSection = {
   items: NavLink[];
 };
 
-/** Yalnız layihədə mövcud marşrutlar */
+/** Routes that exist in this project */
 export const navSections: NavSection[] = [
   {
-    title: "Əsas",
+    title: "Main",
     icon: LayoutDashboard,
     items: [{ label: "Dashboard", path: "/" }],
   },
   {
-    title: "Autentifikasiya",
+    title: "Authentication",
     icon: LogIn,
     items: [
-      { label: "Daxil ol", path: "/auth/signin" },
-      { label: "Link ilə daxil ol", path: "/auth/signin-link" },
-      { label: "Qeydiyyat", path: "/auth/signup" },
-      { label: "Şifrəni unutdum", path: "/auth/forgot-password" },
-      { label: "İstifadə şərtləri", path: "/auth/terms" },
-      { label: "Kilid ekranı", path: "/auth/lock-screen" },
-      { label: "2 addımlı təsdiq", path: "/auth/verification" },
-      { label: "Təsdiq kodu", path: "/auth/verification-code" },
+      { label: "Sign in", path: "/auth/signin" },
+      { label: "Sign in link", path: "/auth/signin-link" },
+      { label: "Sign up", path: "/auth/signup" },
+      { label: "Forgot password", path: "/auth/forgot-password" },
+      { label: "Terms of service", path: "/auth/terms" },
+      { label: "Lock screen", path: "/auth/lock-screen" },
+      { label: "2-step verification", path: "/auth/verification" },
+      { label: "Verification code", path: "/auth/verification-code" },
     ],
   },
   {
-    title: "Səhifələr",
+    title: "Pages",
     icon: FileQuestion,
     items: [{ label: "FAQ", path: "/extra/faq" }],
   },
   {
-    title: "Plaginlər",
+    title: "Plugins",
     icon: Table2,
     items: [{ label: "Datatable", path: "/plugins/datatable" }],
   },
   {
-    title: "Xəta səhifələri",
+    title: "Error pages",
     icon: AlertTriangle,
     items: [
       { label: "500", path: "/errors/500" },
-      { label: "Texniki xidmət", path: "/errors/maintenance" },
+      { label: "Maintenance", path: "/errors/maintenance" },
     ],
   },
 ];

@@ -5,7 +5,7 @@ type PageContentProps = {
   className?: string;
 };
 
-/** Sidebar-dan sonra məzmunun tam eni — yan boşluqsuz, yalnız incə padding */
+/** Full-width page content with consistent horizontal padding */
 export default function PageContent({
   children,
   className = "",

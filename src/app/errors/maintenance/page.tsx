@@ -10,7 +10,7 @@ const MaintenancePage = () => {
         <div className="relative flex justify-center">
           <Image bg-amber-950
             src="/maintenance.png"
-            alt="Bakım Çalışması"
+            alt="Maintenance in progress"
             width={230}
             height={230}
             priority

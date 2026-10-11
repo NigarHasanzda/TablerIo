@@ -52,7 +52,7 @@ export default function Sidebar({ mobileOpen, onClose }: SidebarProps) {
       {mobileOpen && (
         <button
           type="button"
-          aria-label="Menyunu bağla"
+          aria-label="Close menu"
           className="fixed inset-0 z-40 bg-black/40 lg:hidden"
           onClick={onClose}
         />

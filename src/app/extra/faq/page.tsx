@@ -61,23 +61,23 @@ export default function FaqPage() {
       <div className="w-full px-4 py-4 sm:px-5 sm:py-5 lg:px-6">
         <PageHeader
           title="FAQ"
-          description="Tez-tez verilən suallar — axtarın və ya kateqoriya seçin."
+          description="Frequently asked questions — search or pick a category."
         />
 
-        {/* Hero axtarış */}
+        {/* Hero search */}
         <div className="relative mb-5 overflow-hidden rounded-xl border border-blue-100 bg-gradient-to-br from-[#206bc4] to-[#1a5a9e] p-5 text-white shadow-sm sm:p-6">
           <div className="relative z-10 max-w-xl">
             <div className="mb-2 flex items-center gap-2 text-blue-100">
               <Sparkles className="h-4 w-4" />
               <span className="text-xs font-medium uppercase tracking-wide">
-                Kömək mərkəzi
+                Help center
               </span>
             </div>
             <h2 className="text-lg font-semibold sm:text-xl">
-              Sualınız var? Cavabı burada tapın.
+              Have a question? Find your answer here.
             </h2>
             <p className="mt-1 text-sm text-blue-100/90">
-              12+ hazır cavab — hesab, texniki və ümumi mövzular.
+              12+ ready answers — account, technical, and general topics.
             </p>
             <div className="relative mt-4">
               <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
@@ -85,7 +85,7 @@ export default function FaqPage() {
                 type="search"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="Məs: deploy, abunəlik, dark mode…"
+                placeholder="e.g. deploy, billing, dark mode…"
                 className="w-full rounded-lg border-0 py-2.5 pl-10 pr-3 text-sm text-gray-800 shadow-md placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-white/40"
               />
             </div>
@@ -100,11 +100,11 @@ export default function FaqPage() {
           />
         </div>
 
-        {/* Populyar */}
+        {/* Popular */}
         {!query && (
           <div className="mb-5 flex flex-wrap gap-2">
             <span className="w-full text-[11px] font-semibold uppercase tracking-wide text-gray-500 sm:w-auto sm:py-1.5">
-              Populyar:
+              Popular:
             </span>
             {popular.map((item, i) => (
               <button
@@ -123,11 +123,11 @@ export default function FaqPage() {
         )}
 
         <div className="grid gap-4 lg:grid-cols-[220px_minmax(0,1fr)] lg:gap-5">
-          {/* Kateqoriya nav — sticky */}
+          {/* Category nav */}
           <aside className="lg:sticky lg:top-0 lg:self-start">
             <div className="rounded-xl border border-gray-200 bg-white p-2 shadow-sm">
               <p className="px-2 py-1.5 text-[11px] font-semibold uppercase tracking-wide text-gray-400">
-                Kateqoriyalar
+                Categories
               </p>
               <ul className="space-y-0.5">
                 {filteredCategories.map((cat) => {
@@ -164,11 +164,10 @@ export default function FaqPage() {
             </div>
           </aside>
 
-          {/* Suallar */}
           <div className="min-w-0 space-y-4">
             {filteredCategories.length === 0 && (
               <div className="rounded-xl border border-gray-200 bg-white px-4 py-12 text-center text-sm text-gray-500 shadow-sm">
-                Heç bir sual tapılmadı. Başqa açar söz yoxlayın.
+                No questions found. Try another search term.
               </div>
             )}
 
@@ -239,9 +238,9 @@ export default function FaqPage() {
                   <Mail className="h-5 w-5" />
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-[#1d273b]">E-poçt</p>
+                  <p className="text-sm font-semibold text-[#1d273b]">Email</p>
                   <p className="mt-0.5 text-[12px] text-gray-500">
-                    24 saat ərzində cavab
+                    Reply within 24 hours
                   </p>
                   <a
                     href="mailto:support@tabler.io"
@@ -258,13 +257,13 @@ export default function FaqPage() {
                 <div>
                   <p className="text-sm font-semibold text-[#1d273b]">Chat</p>
                   <p className="mt-0.5 text-[12px] text-gray-500">
-                    İş saatları 09:00–18:00
+                    Business hours 9:00 AM–6:00 PM
                   </p>
                   <Link
                     href="/"
                     className="mt-2 inline-block text-[13px] font-medium text-[#206bc4] hover:underline"
                   >
-                    Dashboard-a qayıt
+                    Back to dashboard
                   </Link>
                 </div>
               </div>

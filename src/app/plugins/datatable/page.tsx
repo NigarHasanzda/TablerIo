@@ -199,7 +199,7 @@ export default function DatatablePage() {
       <div className="w-full space-y-4 px-4 py-4 sm:px-5 sm:py-5 lg:px-6">
         <PageHeader
           title="Datatable"
-          description="Axtarış, filtr, sıralama və səhifələmə ilə istifadəçi cədvəli."
+          description="User table with search, filters, sorting, and pagination."
           actions={
             <>
               <button
@@ -214,19 +214,18 @@ export default function DatatablePage() {
                 className="inline-flex items-center gap-1.5 rounded-lg bg-[#206bc4] px-3 py-1.5 text-[13px] font-medium text-white shadow-sm hover:bg-[#1a5cad]"
               >
                 <UserPlus className="h-4 w-4" />
-                Yeni istifadəçi
+                Add user
               </button>
             </>
           }
         />
 
-        {/* Stat kartları */}
         <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
           {[
-            { label: "Cəmi", value: stats.total, sub: "qeydiyyat" },
-            { label: "Aktiv", value: stats.active, sub: "online", accent: "text-green-600" },
-            { label: "Gözləyən", value: stats.pending, sub: "təsdiq", accent: "text-orange-600" },
-            { label: "Seçilmiş", value: selected.length, sub: "sətir", accent: "text-[#206bc4]" },
+            { label: "Total", value: stats.total, sub: "registered" },
+            { label: "Active", value: stats.active, sub: "online", accent: "text-green-600" },
+            { label: "Pending", value: stats.pending, sub: "approval", accent: "text-orange-600" },
+            { label: "Selected", value: selected.length, sub: "rows", accent: "text-[#206bc4]" },
           ].map((s) => (
             <div
               key={s.label}
@@ -248,7 +247,7 @@ export default function DatatablePage() {
           <div className="flex flex-col gap-3 border-b border-gray-100 p-3 sm:p-4">
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <h2 className="text-base font-semibold text-[#1d273b]">
-                İstifadəçilər
+                Users
               </h2>
               <div className="relative w-full sm:max-w-xs">
                 <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
@@ -259,7 +258,7 @@ export default function DatatablePage() {
                     setQuery(e.target.value);
                     setCurrentPage(1);
                   }}
-                  placeholder="Ad, e-poçt, şöbə…"
+                  placeholder="Name, email, department…"
                   className="w-full rounded-lg border border-gray-200 py-2 pl-9 pr-3 text-sm focus:border-[#206bc4] focus:outline-none focus:ring-2 focus:ring-[#206bc4]/15"
                 />
               </div>
@@ -282,7 +281,7 @@ export default function DatatablePage() {
                       : "bg-gray-100 text-gray-600 hover:bg-gray-200"
                   }`}
                 >
-                  {s === "All" ? "Hamısı" : s}
+                  {s === "All" ? "All" : s}
                 </button>
               ))}
               <span className="mx-1 hidden h-4 w-px bg-gray-200 sm:inline" />
@@ -294,7 +293,7 @@ export default function DatatablePage() {
                 }}
                 className="rounded-lg border border-gray-200 bg-white px-2 py-1 text-[12px] text-gray-700"
               >
-                <option value="All">Bütün rollar</option>
+                <option value="All">All roles</option>
                 <option value="Owner">Owner</option>
                 <option value="Admin">Admin</option>
                 <option value="Moderator">Moderator</option>
@@ -322,7 +321,7 @@ export default function DatatablePage() {
                       onClick={() => toggleSort("name")}
                       className="inline-flex items-center hover:text-gray-600"
                     >
-                      Ad
+                      Name
                       <SortIcon column="name" />
                     </button>
                   </th>
@@ -332,14 +331,14 @@ export default function DatatablePage() {
                       onClick={() => toggleSort("title")}
                       className="inline-flex items-center hover:text-gray-600"
                     >
-                      Vəzifə
+                      Title
                       <SortIcon column="title" />
                     </button>
                   </th>
-                  <th className="px-3 py-2.5">E-poçt</th>
-                  <th className="px-3 py-2.5">Şöbə</th>
-                  <th className="px-3 py-2.5">Rol</th>
-                  <th className="px-3 py-2.5">Ölkə</th>
+                  <th className="px-3 py-2.5">Email</th>
+                  <th className="px-3 py-2.5">Department</th>
+                  <th className="px-3 py-2.5">Role</th>
+                  <th className="px-3 py-2.5">Country</th>
                   <th className="px-3 py-2.5">Status</th>
                   <th className="px-3 py-2.5">
                     <button
@@ -347,11 +346,11 @@ export default function DatatablePage() {
                       onClick={() => toggleSort("lastLogin")}
                       className="inline-flex items-center hover:text-gray-600"
                     >
-                      Son giriş
+                      Last login
                       <SortIcon column="lastLogin" />
                     </button>
                   </th>
-                  <th className="px-3 py-2.5 text-right">Əməliyyat</th>
+                  <th className="px-3 py-2.5 text-right">Actions</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100">
@@ -431,7 +430,7 @@ export default function DatatablePage() {
 
           {filtered.length === 0 && (
             <p className="px-4 py-10 text-center text-sm text-gray-500">
-              Nəticə tapılmadı.
+              No results found.
             </p>
           )}
 
@@ -439,14 +438,14 @@ export default function DatatablePage() {
             <div className="flex flex-wrap items-center gap-3 text-[13px] text-gray-500">
               <p>
                 {filtered.length === 0
-                  ? "0 qeyd"
+                  ? "0 entries"
                   : `${(safePage - 1) * pageSize + 1}–${Math.min(
                       safePage * pageSize,
                       filtered.length
                     )} / ${filtered.length}`}
               </p>
               <label className="flex items-center gap-1.5">
-                <span className="text-[12px]">Səhifə ölçüsü:</span>
+                <span className="text-[12px]">Page size:</span>
                 <select
                   value={pageSize}
                   onChange={(e) => {
@@ -473,11 +472,10 @@ export default function DatatablePage() {
           </div>
         </div>
 
-        {/* Alt statistik kartlar */}
         <div className="grid gap-4 md:grid-cols-2">
           <div className="rounded-xl border border-gray-200 bg-white p-4 shadow-sm">
             <h3 className="text-sm font-semibold text-[#1d273b]">
-              Ölkələr üzrə
+              By country
             </h3>
             <ul className="mt-3 space-y-2">
               {topCountries.map(([country, count]) => (
@@ -493,7 +491,7 @@ export default function DatatablePage() {
           </div>
           <div className="rounded-xl border border-gray-200 bg-white p-4 shadow-sm">
             <h3 className="text-sm font-semibold text-[#1d273b]">
-              Rollara görə paylanma
+              Role distribution
             </h3>
             <ul className="mt-3 space-y-2">
               {roleCounts.map(([role, count]) => {

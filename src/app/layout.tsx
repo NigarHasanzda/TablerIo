@@ -14,7 +14,7 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="az">
+    <html lang="en">
       <body className="min-h-screen antialiased" suppressHydrationWarning>
         <AppShell>{children}</AppShell>
       </body>
