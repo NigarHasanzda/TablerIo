@@ -1,22 +1,20 @@
-'use client';
-
-import React from 'react';
-import dynamic from 'next/dynamic';
+import type { Metadata } from "next";
 import "./globals.css";
+import { rootMetadata, viewport } from "@/lib/seo/metadata";
+import { ClientProviders } from "./providers";
 
-const AppShell = dynamic(() => import('@/layout/shell/AppShell'), {
-  ssr: false,
-});
+export const metadata: Metadata = rootMetadata;
+export { viewport };
 
-interface RootLayoutProps {
+export default function RootLayout({
+  children,
+}: Readonly<{
   children: React.ReactNode;
-}
-
-export default function RootLayout({ children }: RootLayoutProps) {
+}>) {
   return (
     <html lang="en">
       <body className="min-h-screen antialiased" suppressHydrationWarning>
-        <AppShell>{children}</AppShell>
+        <ClientProviders>{children}</ClientProviders>
       </body>
     </html>
   );
