@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
-import Pagination from '@/components/Pagination/Paginations';
+import Pagination from "@/shared/ui/pagination/Paginations";
 
 interface Invoice {
   id: string;

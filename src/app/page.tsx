@@ -1,11 +1,11 @@
-import DashboardCard from "@/components/_homesections/Dashboard/DashboardCard";
-import DeveloperActivity from "@/components/_homesections/DevelopmentActivity/DevelopmentActivity";
-import LocationTraffic from "@/components/_homesections/LocationTraffic/LocationTrafic";
-import MetricsGrid from "@/components/_homesections/MetricsGrid/MetricsGrid";
-import StatCard from "@/components/_homesections/StatCards/StatCard";
-import SocialMediaTasks from "@/components/_homesections/SocialMediaTask/SocialMediaTask";
-import InvoicesService from "@/components/_homesections/Invoices/InvoicesService";
-import PageContent from "@/components/layout/PageContent";
+import DashboardCard from "@/features/dashboard/DashboardCard";
+import DeveloperActivity from "@/features/dashboard/DevelopmentActivity";
+import LocationTraffic from "@/features/dashboard/LocationTraffic";
+import MetricsGrid from "@/features/dashboard/MetricsGrid";
+import StatCard from "@/features/dashboard/StatCard";
+import SocialMediaTasks from "@/features/dashboard/SocialMediaTask";
+import InvoicesService from "@/features/dashboard/InvoicesService";
+import PageContent from "@/layout/page/PageContent";
 
 export default function Home() {
   return (

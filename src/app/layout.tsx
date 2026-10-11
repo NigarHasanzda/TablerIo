@@ -4,7 +4,7 @@ import React from 'react';
 import dynamic from 'next/dynamic';
 import "./globals.css";
 
-const AppShell = dynamic(() => import('@/components/AppShell/AppShell'), {
+const AppShell = dynamic(() => import('@/layout/shell/AppShell'), {
   ssr: false,
 });
 

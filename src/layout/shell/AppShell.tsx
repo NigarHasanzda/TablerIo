@@ -4,11 +4,11 @@ import React, { useState } from "react";
 import { usePathname } from "next/navigation";
 import dynamic from "next/dynamic";
 import { minimalLayoutPrefixes } from "@/config/navigation";
-import Header from "@/components/Header/Header";
-import Sidebar from "@/components/Sidebar/Sidebar";
+import Header from "@/layout/header/Header";
+import Sidebar from "@/layout/sidebar/Sidebar";
 
 const FooterWrapper = dynamic(
-  () => import("@/components/Footer/FooterWrapper"),
+  () => import("@/layout/footer/FooterWrapper"),
   { ssr: false }
 );
 

@@ -9,7 +9,7 @@ import {
   Search,
   Sparkles,
 } from "lucide-react";
-import PageHeader from "@/components/layout/PageHeader";
+import PageHeader from "@/layout/page/PageHeader";
 import { faqCategories } from "@/config/faq";
 
 export default function FaqPage() {

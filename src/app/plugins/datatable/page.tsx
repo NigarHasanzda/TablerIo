@@ -11,8 +11,8 @@ import {
   Search,
   UserPlus,
 } from "lucide-react";
-import PageHeader from "@/components/layout/PageHeader";
-import Pagination from "@/components/Pagination/Paginations";
+import PageHeader from "@/layout/page/PageHeader";
+import Pagination from "@/shared/ui/pagination/Paginations";
 
 type Status = "Active" | "Inactive" | "Pending";
 type Role = "Owner" | "Admin" | "Moderator" | "User";
