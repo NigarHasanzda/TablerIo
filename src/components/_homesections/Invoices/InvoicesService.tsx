@@ -80,7 +80,7 @@ const InvoicesService = () => {
   };
 
   return (
-    <div className="w-[73.5%] mx-auto rounded-lg shadow-sm border border-gray-200 overflow-hidden font-sans">
+    <div className="w-full overflow-hidden rounded-lg border border-gray-200 font-sans shadow-sm">
 
       {/* Header */}
       <div className="p-4 border-b border-gray-100 bg-white">

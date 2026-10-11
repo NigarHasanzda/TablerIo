@@ -57,7 +57,7 @@ const CustomTooltip = ({ active, payload, label }: any) => {
 
 const Dashboard = () => {
   return (
-    <div className="mx-auto w-full  max-w-[72.4%] px-4 lg:px-0 py-8 font-sans">
+    <div className="w-full font-sans">
       <div className="flex flex-col md:flex-row justify-between gap-4 mb-5">
         <div>
           <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Overview</p>

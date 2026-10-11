@@ -106,10 +106,10 @@ const StatsDashboard = () => {
   };
 
   return (
-    <div className="flex w-[90%] mx-auto mt-[-10px] flex-wrap gap-5 h-fit font-sans justify-center">
+    <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4 font-sans">
 
       {/* SALES */}
-      <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm w-[330px] h-[170px] flex flex-col justify-between">
+      <div className="flex h-[170px] min-w-0 flex-col justify-between rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
         <div className="flex justify-between items-center">
           <span className="text-[12px] font-bold text-gray-400 uppercase tracking-widest">SALES</span>
           <div className="flex items-center text-[13px] text-gray-500">
@@ -137,7 +137,7 @@ const StatsDashboard = () => {
       </div>
 
       {/* REVENUE */}
-      <div className="bg-white pt-6 rounded-xl border border-gray-200 shadow-sm w-[330px] h-[170px] flex flex-col relative">
+      <div className="relative flex h-[170px] min-w-0 flex-col rounded-xl border border-gray-200 bg-white pt-6 shadow-sm">
         <div className="flex justify-between mx-[20px] items-center mb-2">
           <span className="text-[12px] font-bold text-gray-400 uppercase tracking-widest">REVENUE</span>
           <div className="flex items-center text-[13px] text-gray-500">
@@ -189,7 +189,7 @@ const StatsDashboard = () => {
       </div>
 
       {/* NEW CLIENTS */}
-      <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm w-[330px] h-[170px] flex flex-col justify-between">
+      <div className="flex h-[170px] min-w-0 flex-col justify-between rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
         <div className="flex justify-between items-center">
           <span className="text-[12px] font-bold text-gray-400 uppercase tracking-widest">NEW CLIENTS</span>
           <div className="flex items-center text-[13px] text-gray-500">
@@ -235,7 +235,7 @@ const StatsDashboard = () => {
       </div>
 
       {/* SUBSCRIPTIONS */}
-      <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm w-[330px] h-[170px] flex flex-col">
+      <div className="flex h-[170px] min-w-0 flex-col rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
         <div className="flex justify-between items-center mb-2">
           <span className="text-[12px] font-bold text-gray-400 uppercase tracking-widest">ACTIVE SUBSCRIPTIONS</span>
           <div className="flex items-center text-[13px] text-gray-500">

@@ -2,6 +2,7 @@
   "name": "table.io",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@10.34.6",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -9,12 +10,16 @@
     "preview": "next start -p 3003"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@mui/icons-material": "^9.5.0",
+    "@mui/material": "^9.5.0",
     "lucide-react": "^0.563.0",
     "next": "16.1.6",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-icons": "^5.5.0",
-    "react-simple-maps": "^3.0.0",
+    "react-simple-maps": "^5.0.5",
     "react-tooltip": "^5.30.0",
     "recharts": "^3.7.0"
   },

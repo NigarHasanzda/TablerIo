@@ -101,8 +101,8 @@ export default function LocationTraffic() {
   });
 
   return (
-    <div className="bg-[#f8fafc] mt-[-25px] h-fit">
-      <div className="w-[73%] mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div className="w-full">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-5">
 
         <div className="bg-white rounded-lg border border-[#e6e8e9] shadow-sm p-6">
           <h3 className="text-[16px] font-semibold text-[#1d273b] mb-8">

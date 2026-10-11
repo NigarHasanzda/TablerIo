@@ -51,7 +51,7 @@ const SocialMediaTasks = () => {
     };
 
     return (
-        <div className="flex w-[74.9%] -mt-2 flex-col lg:flex-row gap-4 p-4 bg-slate-50 mx-auto font-sans antialiased text-slate-600">
+        <div className="flex w-full flex-col gap-4 font-sans antialiased text-slate-600 lg:flex-row">
 
             <div className="bg-white rounded-lg border border-slate-200 shadow-sm flex-1 h-fit">
                 <div className="p-4 border-b border-slate-100">

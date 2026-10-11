@@ -4,8 +4,9 @@ import React from 'react';
 import dynamic from 'next/dynamic';
 import "./globals.css";
 
-const HeaderWrapper = dynamic(() => import('@/components/Header/HeaderWrapper'), { ssr: false });
-const FooterWrapper = dynamic(() => import('@/components/Footer/FooterWrapper'), { ssr: false });
+const AppShell = dynamic(() => import('@/components/AppShell/AppShell'), {
+  ssr: false,
+});
 
 interface RootLayoutProps {
   children: React.ReactNode;
@@ -13,15 +14,9 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en">
-      <body className="flex flex-col min-h-screen bg-gray-50"
-       suppressHydrationWarning
-       >
-        <HeaderWrapper />
-        <main className="flex-1">
-          {children}
-        </main>
-        <FooterWrapper />
+    <html lang="az">
+      <body className="min-h-screen antialiased" suppressHydrationWarning>
+        <AppShell>{children}</AppShell>
       </body>
     </html>
   );

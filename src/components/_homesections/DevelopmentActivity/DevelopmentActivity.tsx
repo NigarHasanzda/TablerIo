@@ -45,11 +45,11 @@ const DeveloperActivitySection = () => {
   ];
 
   // SSR sırasında boş bir iskelet veya null dönerek eşleşme hatasını engelliyoruz
-  if (!mounted) return <div className="min-h-screen bg-transparent" />;
+  if (!mounted) return <div className="h-48 w-full animate-pulse rounded-lg bg-gray-100/80" />;
 
   return (
-    <div className="p-6 h-fit font-sans antialiased  text-[#495057]">
-      <div className="w-[74.9%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6">
+    <div className="w-full font-sans antialiased text-[#495057]">
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-5">
         
         {/* SOL KOLON */}
         <div className="space-y-3">

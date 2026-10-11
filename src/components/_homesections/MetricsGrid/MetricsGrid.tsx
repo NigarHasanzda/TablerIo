@@ -54,7 +54,7 @@ const MetricsGrid: React.FC = () => {
   ];
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 p-4 w-[74.4%] mx-auto mb-8">
+    <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
       {metrics.map((item, idx) => {
         const IconComponent = item.icon;
         return (
